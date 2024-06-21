@@ -78,3 +78,12 @@
 .container {
   @apply max-w-[640px] mx-auto px-2;
 }
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #d4d4d8;
+  border-radius: 14px;
+}

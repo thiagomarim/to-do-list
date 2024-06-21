@@ -9,16 +9,7 @@ export interface TasksProps {
 }
 
 export default function App() {
-  const [tasks, setTasks] = useState<TasksProps[]>([
-    {
-      id: "0",
-      text: "Correr",
-    },
-    {
-      id: "1",
-      text: "Correr 2",
-    },
-  ]);
+  const [tasks, setTasks] = useState<TasksProps[]>([]);
   const [input, setInput] = useState("");
 
   function handleSubmit(event: FormEvent) {
@@ -41,28 +32,33 @@ export default function App() {
   }
 
   return (
-    <section className="container flex flex-col justify-center w-full mt-80">
-      <form onSubmit={handleSubmit} className="flex items-center w-full gap-2">
-        <Input
-          onChange={(event) => setInput(event.target.value)}
-          placeholder="Escreva uma tarefa aqui!"
-          className="h-12"
-          required
-          value={input}
-        />
-        <Button className="h-12">Enviar</Button>
-      </form>
+    <main className="flex items-center justify-center h-screen">
+      <section className="container flex flex-col w-full min-h-[600px]">
+        <form
+          onSubmit={handleSubmit}
+          className="flex items-center w-full gap-2"
+        >
+          <Input
+            onChange={(event) => setInput(event.target.value)}
+            placeholder="Escreva uma tarefa"
+            className="h-12 text-base"
+            required
+            value={input}
+          />
+          <Button className="h-12">Enviar</Button>
+        </form>
 
-      <div className="mt-12 flex items-center gap-2 w-full">
-        <span>Tarefas criadas</span>
-        <div className="flex items-center justify-center size-6 bg-zinc-100 rounded-full">
-          <span className="text-sm">{tasks.length}</span>
+        <div className="mt-6 flex items-center gap-2 w-full">
+          <span>Tarefas criadas</span>
+          <div className="flex items-center justify-center size-6 bg-zinc-100 rounded-full">
+            <span className="text-sm font-semibold">{tasks.length}</span>
+          </div>
         </div>
-      </div>
 
-      <div className="mt-6 w-full">
-        <TasksCard tasks={tasks} handleDelete={deleteTaskById} />
-      </div>
-    </section>
+        <div className="mt-12 w-full max-h-[400px] overflow-auto">
+          <TasksCard tasks={tasks} handleDelete={deleteTaskById} />
+        </div>
+      </section>
+    </main>
   );
 }

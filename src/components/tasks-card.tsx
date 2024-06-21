@@ -8,7 +8,7 @@ interface TasksCardProps {
 
 export default function TasksCard({ tasks, handleDelete }: TasksCardProps) {
   return (
-    <section className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8">
       {tasks.map((task) => (
         <div key={task.id} className="border-b border-zinc-300">
           <div className="mb-2 flex items-center justify-between">
@@ -22,6 +22,6 @@ export default function TasksCard({ tasks, handleDelete }: TasksCardProps) {
           </div>
         </div>
       ))}
-    </section>
+    </div>
   );
 }

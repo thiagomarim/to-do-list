@@ -45,7 +45,7 @@ export default function App() {
             required
             value={input}
           />
-          <Button className="h-12">Enviar</Button>
+          <Button className="h-12">Adicionar</Button>
         </form>
 
         <div className="mt-6 flex items-center gap-2 w-full">

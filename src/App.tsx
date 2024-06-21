@@ -35,8 +35,13 @@ export default function App() {
     setInput("");
   }
 
+  function deleteTaskById(taskId: string) {
+    const newTasks = tasks.filter((task) => task.id !== taskId);
+    setTasks(newTasks);
+  }
+
   return (
-    <section className="container flex flex-col items-center justify-center w-full h-screen">
+    <section className="container flex flex-col justify-center w-full mt-80">
       <form onSubmit={handleSubmit} className="flex items-center w-full gap-2">
         <Input
           onChange={(event) => setInput(event.target.value)}
@@ -56,7 +61,7 @@ export default function App() {
       </div>
 
       <div className="mt-6 w-full">
-        <TasksCard tasks={tasks} />
+        <TasksCard tasks={tasks} handleDelete={deleteTaskById} />
       </div>
     </section>
   );

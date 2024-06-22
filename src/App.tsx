@@ -34,6 +34,7 @@ export default function App() {
   return (
     <main className="flex items-center justify-center h-screen">
       <section className="container flex flex-col w-full min-h-[600px]">
+        <h1 className="mb-6 font-bold text-xl">To Do List</h1>
         <form
           onSubmit={handleSubmit}
           className="flex items-center w-full gap-2"

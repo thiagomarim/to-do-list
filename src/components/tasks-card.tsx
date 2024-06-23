@@ -1,6 +1,5 @@
 import { RiDeleteBinLine } from "react-icons/ri";
 import { TasksProps } from "../App";
-import { IoMdCheckmark } from "react-icons/io";
 
 interface TasksCardProps {
   tasks: TasksProps[];
@@ -13,9 +12,9 @@ export default function TasksCard({ tasks, handleDelete }: TasksCardProps) {
       {tasks.map((task) => (
         <div key={task.id} className="border-b border-zinc-300">
           <div className="mb-2 flex items-center justify-between">
-            <button className="flex items-center justify-center size-8 rounded-sm transition-colors bg-transparent hover:bg-green-200">
+            {/* <button className="flex items-center justify-center size-8 rounded-sm transition-colors bg-transparent hover:bg-green-200">
               <IoMdCheckmark size={24} color="#22c55e" />
-            </button>
+            </button> */}
             <p className="font-semibold">{task.text}</p>
             <button
               onClick={() => handleDelete(task.id)}
